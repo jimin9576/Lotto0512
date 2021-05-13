@@ -29,25 +29,24 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="bottom"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center"
                     android:text="Random Number Generation"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_weight="1"
                     android:gravity="center|top"
                     android:text="랜덤 숫자 생성" />
 
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 app:srcCompat="@drawable/lottery" />
@@ -58,6 +57,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:layout_weight="0.333"
         app:cardCornerRadius="8dp"
         app:cardUseCompatPadding="true">
@@ -76,25 +77,24 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="bottom"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center"
                     android:text="Constellation Number Generation"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_weight="1"
                     android:gravity="center|top"
                     android:text="별자리 기반 숫자 생성" />
 
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/imageView2"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 app:srcCompat="@drawable/constellation" />
@@ -123,25 +123,24 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="bottom"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center"
                     android:text="Name Number Generation"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_weight="1"
                     android:gravity="center|top"
                     android:text="이름 기반 숫자 생성" />
 
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/imageView3"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 app:srcCompat="@drawable/name" />
