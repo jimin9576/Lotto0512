@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, ConstellationActivity::class.java))
         }
         card_Name.setOnClickListener {
-            startActivity(Intent(this@MainActivity, card_Name::class.java))
+            startActivity(Intent(this@MainActivity, NameActivity::class.java))
         }
     }
 }
