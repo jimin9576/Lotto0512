@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Lotto0512</string>
+    <string name="app_name">Reversal Lotto</string>
+    <string name="constell">Constellation-based number generation</string>
 </resources>
