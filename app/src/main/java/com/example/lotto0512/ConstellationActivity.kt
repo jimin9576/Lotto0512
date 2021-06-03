@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CalendarView
 import android.widget.DatePicker
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import java.text.SimpleDateFormat
+import java.time.Year
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -21,13 +23,16 @@ class ConstellationActivity : AppCompatActivity() {
 
         txtConstell.text = makeConstellationString(datePicker.month, datePicker.dayOfMonth)
 
-        fun getShuffledLottoNumbersFromHash(str: String) : MutableList<Int>{
+        fun getShuffledLottoNumbersFromHash(str: String, month: Int, dayOfMonth: Int) : MutableList<Int>{
             val list = mutableListOf<Int>()
 
             for (number in 1..45){
                 list.add(number)
             }
-            val targetString = SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(Date())+str
+
+        //    val targetString = SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(Date())+str
+            val targetString = "${month}${dayOfMonth}${str}";
+
 
             list.shuffle(Random(targetString.hashCode().toLong()))
 
@@ -37,10 +42,21 @@ class ConstellationActivity : AppCompatActivity() {
         val btnGoResultConstell = findViewById<Button>(R.id.btnGoResultConstell)
         btnGoResultConstell.setOnClickListener {
             val intent = Intent(this, ResultActivity::class.java)
-            intent.putIntegerArrayListExtra("result", ArrayList(getShuffledLottoNumbersFromHash(txtConstell.text.toString())))
+            intent.putIntegerArrayListExtra("result", ArrayList(getShuffledLottoNumbersFromHash(txtConstell.text.toString(), datePicker.month.toString().toInt(), datePicker.dayOfMonth)))
             intent.putExtra("constellation",makeConstellationString(datePicker.month, datePicker.dayOfMonth))
             startActivity(intent)
         }
+
+        val calendar = Calendar.getInstance()
+
+        datePicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH),
+                object : CalendarView.OnDateChangeListener, DatePicker.OnDateChangedListener{
+                    override fun onSelectedDayChange(view: CalendarView, year: Int, month: Int, dayOfMonth: Int) {}
+
+                    override fun onDateChanged(view: DatePicker?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
+                        txtConstell.text = makeConstellationString(datePicker.month, datePicker.dayOfMonth)
+                    }
+                })
     }
 
     private fun makeConstellationString(month: Int, dayOfMonth: Int): String{

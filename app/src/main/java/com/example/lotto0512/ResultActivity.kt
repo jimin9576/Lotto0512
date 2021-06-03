@@ -2,9 +2,11 @@ package com.example.lotto0512
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.DatePicker
 import android.widget.ImageView
 import android.widget.TextView
 import org.w3c.dom.Text
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,8 +23,7 @@ class ResultActivity : AppCompatActivity() {
 
         sConstellation?.let{
             val resultLabel = findViewById<TextView>(R.id.resultLabel)
-            resultLabel.text = "${sConstellation}의 ${SimpleDateFormat("yyyy년 MM월 dd일")
-                    .format(Date())} 로또 번호입니다."
+            resultLabel.text = "${sConstellation}의 ${SimpleDateFormat("yyyy년 MM월 dd일").format(Date())} 로또 번호입니다."
         }
 
         val imageView1 = findViewById<ImageView>(R.id.imageView1)
